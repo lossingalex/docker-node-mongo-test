@@ -6,3 +6,15 @@ services:
       - ./:/app
     ports:
       - "3000:3000"
+    links:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  mongodata:
+    image: tianon/true
+    volumes:
+      - /data/db
